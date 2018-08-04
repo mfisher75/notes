@@ -9,9 +9,17 @@ import { NoteService } from '../services/note.service';
 })
 export class NoteListComponent implements OnInit {
 
-  notes : Note[] = [];
+  notes: Note[] = [];
 
-  constructor(private noteService : NoteService) { }
+  constructor(private noteService: NoteService) { }
+
+
+
+  delete(note) {
+    // console.log(note);
+    // console.log(typeof note);
+    this.noteService.delete(note)
+  }
 
   ngOnInit() {
     this.noteService.load().subscribe(result => {

@@ -10,6 +10,7 @@ import { Note } from '../models/note';
   providedIn: 'root'
 })
 export class NoteService {
+ 
 
   private id_counter = 0;
   private notes : Note[] = [ 
@@ -41,6 +42,14 @@ export class NoteService {
     note.id = ++this.id_counter;
     this.notes.push(note);
   }
+
+  delete(note: Note){
+    let noteIndex = this.notes.indexOf(note);
+    this.notes.splice(noteIndex, 1);
+  }
+
+
+
 
   public get(id:string) :Observable<Note> {
     if (id === 'new') {
