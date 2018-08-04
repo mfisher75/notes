@@ -1,0 +1,28 @@
+<!-- <div class="content">
+  <div class="note">
+    <div class="note_tile">
+      {{ note.title }}
+    </div>
+    <div class="note_body">
+      {{ note.body}}
+    </div>
+  </div>
+</div> -->
+
+
+
+<form  (ngSubmit)="onSubmit(note)" #noteForm="ngForm">
+  <div class="form_field">
+    <label for="title">note title</label>
+    <input [(ngModel)]="note.title" type="text" name="title" required>
+  </div>
+  <div class="form_field">
+    <label for="note id">note id</label>
+    <input [(ngModel)]="note.id" type="text" name="id">
+  </div>
+  <!-- Buttons -->
+  <div>
+    <button type="submit" class="action_button" >OK</button>
+    <button type="cancel" class="action_button" (click)="adding_trip=false">CANCEL</button>
+  </div>
+</form>
